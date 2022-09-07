@@ -5,7 +5,7 @@ import Comment from './compoents/Comments';
 
 function App() {
   const initialPage = 1;
-  const pageDataLimit = 8;
+  const pageDataLimit = 9;
   const [items, setItems] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(initialPage);
@@ -28,7 +28,7 @@ function App() {
       setHasMore(false);
     }
   };
-  
+
   return (
     <>
       <InfiniteScroll
@@ -37,8 +37,8 @@ function App() {
         hasMore={hasMore}
         loader={<Spinner />}
       >
-        <div className="container px-4">
-          <div className="row row-cols-4 d-flex justify-content-center">
+        <div className="container">
+          <div className="row row-cols-3 d-flex justify-content-center">
             {items.map((item) => (<Comment key={item.id} item={item} />))} 
           </div>
         </div>
