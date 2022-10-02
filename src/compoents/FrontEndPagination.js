@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
-import Spinner from '../../compoents/Spinner';
-import Card from '../../compoents/Card';
+import Spinner from './Spinner';
+import Card from './Card';
 
 /** avoid repeat call api in react strict mode */
 let didInit = false;
@@ -12,12 +12,14 @@ function FrontEndPagination() {
   const perPageCount = 9;
   const totalPage = Math.ceil(totalUserData.length / perPageCount);
   const currentDataLength = page * perPageCount;
-  const [hasMore, setHasMore] = useState(totalPage > 1);
+  const [hasMore, setHasMore] = useState(true);
 
   const loadFunc = () => {
     const newPage = page + 1;
     setPage(newPage);
-    if (newPage >= totalPage) setHasMore(false);
+    console.log('newPage >= totalPage', newPage >= totalPage)
+    const hasMoreData = newPage < totalPage;
+    setHasMore(hasMoreData);
   };
 
   useEffect(() => {
@@ -33,7 +35,7 @@ function FrontEndPagination() {
   }, []);
 
   return (
-    <div className="Wrapper">
+    <div className="wrapper">
         <InfiniteScroll
           pageStart={1}
           loadMore={loadFunc}

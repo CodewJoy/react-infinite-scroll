@@ -1,8 +1,22 @@
-.app {
-    padding: 15px 15px 0 15px;
+.topbar {
+    background-color: #0d6efd;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    margin: 0 0 20px 0;
+    font-size: 25px;
+    font-weight: bold;
+    p {
+        margin: 0 0 0 20px;
+    }
 }
-
-.Wrapper {
-    height: calc(100vh - 88px);
+main {
+    padding: 0 15px 15px 15px;
+}
+.wrapper {
+    height: calc(100vh - 122px);
     overflow: auto;
+    border: 1px outset lightgray;
+    border-top-style: none;
 }

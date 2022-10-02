@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
-import Spinner from '../../compoents/Spinner';
-import Comment from '../../compoents/Comments';
+import Spinner from './Spinner';
+import Comment from './Comments';
 
 function BackendPagination() {
   const pageDataLimit = 9;
@@ -30,7 +30,7 @@ function BackendPagination() {
   };
 
   return (
-    <div className="Wrapper">
+    <div className="wrapper">
         <InfiniteScroll
             pageStart={1}
             loadMore={loadFunc}
